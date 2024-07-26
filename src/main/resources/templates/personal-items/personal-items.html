@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal items</title>
+</head>
+<body>
+    <th:block th:each="personalItem : ${listOfPersonalItems}">
+        <b th:text="${personalItem.toString()}"/>
+        <br>
+    </th:block>
+</body>
+</html>

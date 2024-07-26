@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Realty</title>
+</head>
+<body>
+    <th:block th:each="realty : ${listOfRealty}">
+        <b style="display: inline;" th:text="${realty.toString()}"/>
+<!--        it's the mock link-->
+        <form style="display: inline" th:action="@{/springvito/persons/dialog/{id}(id=${realty.getId()})}">
+        <button>send message</button>
+        </form>
+        <br>
+    </th:block>
+
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet" />
+    <title>Sign up</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/springvito/registration/sign-up/register}" th:object="${person}">
+    <label for="nickname">Enter nickname: </label>
+    <input type="text" th:field="*{nickname}" id="nickname"/>
+    <br>
+    <label for="password">Enter password</label>
+    <input type="text" th:field="*{password}" id="password" />
+    <br>
+    <input type="submit" value="Register"/>
+</form>
+
+
+<div class="linkStartPage">
+    <a href="/springvito">SpringVito</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet" />
+    <title th:text="${person.getNickname()}"></title>
+</head>
+
+<body>
+
+<b th:text="${person.toString()}"/>
+<br>
+<br>
+
+<form th:action="@{/springvito/realty/add/{id}(id=${person.getId()})}">
+    <h4>Realty<button>Add</button></h4>
+</form>
+<div th:block th:each="realty : ${person.getRealty()}">
+    <p style="display:inline;" th:text="${realty}">
+    <form style="display:inline;" th:action="@{/springvito/realty/edit/{id}(id=${realty.getId()})}">
+        <button>update</button>
+    </form>
+    <form style="display:inline;" th:method="DELETE" th:action="@{/springvito/realty/delete/{personId}/{realtyId}
+    (personId=${person.getId()}, realtyId=${realty.getId()})}">
+        <button>remove</button>
+    </form>
+</div>
+
+<form th:action="@{/springvito/autos/add/{id}(id=${person.getId()})}">
+    <h4>Autos<button>Add</button></h4>
+</form>
+
+    <th:block th:each="auto : ${person.getAutos()}">
+        <p style="display: inline;" th:text="${auto}"/>
+        <form style="display: inline;" th:action="@{/springvito/autos/edit/{id}(id=${auto.getId()})}">
+            <button>update</button>
+        </form>
+        <form style="display: inline;" th:method="DELETE" th:action="@{/springvito/autos/delete/{personId}/{autoId}
+        (personId=${person.getId()}, autoId=${auto.getId()})}">
+            <button>remove</button>
+        </form>
+        <br>
+    </th:block>
+
+<form th:action="@{/springvito/personal-items/add/{id}(id=${person.getId()})}">
+    <h4>Personal items<button>Add</button></h4>
+</form>
+
+<th:block th:each="personalItem : ${person.getPersonalItems()}">
+    <p style="display: inline;" th:text="${personalItem}"/>
+    <form style="display: inline;" th:action="@{/springvito/personal-items/edit/{id}(id=${personalItem.getId()})}">
+        <button>update</button>
+    </form>
+    <form style="display: inline;" th:method="DELETE" th:action="@{/springvito/personal-items/delete/{personId}/{personalItemId}
+        (personId=${person.getId()}, personalItemId=${personalItem.getId()})}">
+        <button>remove</button>
+    </form>
+    <br>
+</th:block>
+<br>
+<h4>Messages</h4>
+<div class="linkStartPage">
+    <a href="/logout">Log out</a>
+    <br>
+    <a href="/springvito">SpringVito</a>
+</div>
+</body>
+</html>

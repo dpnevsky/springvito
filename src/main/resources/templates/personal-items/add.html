@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adding personal item</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/springvito/personal-items/add}" th:object="${personalItem}">
+    <label for="title">Enter title</label>
+    <input type="text" th:field="*{title}" id="title"/>
+    <br>
+    <label for="price">Enter price</label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <input type="hidden" th:field="*{owner}"/>
+    <br>
+    <input type="submit" value="Add"/>
+</form>
+</body>
+</html>

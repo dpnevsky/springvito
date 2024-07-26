@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet" />
+    <title>List of persons</title>
+</head>
+<body>
+<style>
+div.head {
+        text-align: center;
+}
+</style>
+<div class="head">
+<h1>List of persons</h1>
+</div>
+<table>
+    <tr th:block th:each="person : ${personsList}">
+        <a th:href="@{/springvito/persons/{id}(id=${person.getId()})}"
+           th:text="${person.getId() + ' ' + person.getNickname()}"/>
+        <br>
+
+    </tr>
+</table>
+
+
+<div class="linkStartPage">
+    <a href="/springvito">SpringVito</a>
+</div>
+</body>
+</html>

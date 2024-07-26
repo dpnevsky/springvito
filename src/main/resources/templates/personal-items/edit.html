@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet" />
+    <title>Edit personal item</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/springvito/personal-items/edit/{id}(id=${personalItem.getId()})}" th:object="${personalItem}">
+    <label for="title">Title: </label>
+    <input type="text" th:field="*{title}" id="title"/>
+    <br>
+    <label for="price">Price: </label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <input type="hidden" th:field="*{owner}"/>
+    <br>
+    <input type="submit" value="Edit"/>
+</form>
+
+
+
+<div class="linkStartPage">
+    <a href="/springvito">SpringVito</a>
+</div>
+
+</body>
+</html>

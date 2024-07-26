@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link href="start-page.html"/>
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet" />
     <title>SpringVito</title>
 </head>
 <body>
+<td>Advertisements:</td>
+<p><a th:href="@{/springvito/autos}">autos</a></p>
+<p><a th:href="@{/springvito/realty}">realty</a></p>
+<p><a th:href="@{/springvito/personal-items}">personal-items</a></p>
+<a href="/springvito/registration/sign-up">Sign up</a>
+<br>
+<a href="/springvito/registration/log-in">Log in</a>
+<br>
+<br>
+<a href="springvito/persons/list-of-persons">List of persons</a>
+<br>
+<form id="logoutForm" class="linkStartPage" th:method="POST" th:action="@{/logout}">
+    <input type="hidden" value="Log out"/>
+</form>
+<a class="linkStartPage" href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();">Log out</a>
 
 </body>
 </html>
